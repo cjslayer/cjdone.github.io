@@ -8,51 +8,52 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg: #0D0F0E;
-  --surface: #141716;
-  --surface2: #1C1F1E;
+  --bg: #0D0F12;
+  --surface: #12151A;
+  --surface2: #191D24;
   --border: rgba(255,255,255,0.07);
   --border2: rgba(255,255,255,0.13);
-  --ink: #F0EDE6;
-  --ink2: #8A8F8C;
-  --ink3: #4A4F4C;
-  --green: #3DDB82;
-  --green-dim: #1A3D2B;
-  --green-text: #2BB86A;
+  --ink: #EDF2F7;
+  --ink2: #7A8A9A;
+  --ink3: #3A4A5A;
+  --blue: #38b6ff;
+  --blue-dim: #0D1E2E;
+  --blue-text: #38b6ff;
+  --blue-hover: #6CCAFF;
   --red: #FF5C5C;
 }
 html { scroll-behavior: smooth; }
 body { font-family: 'Instrument Sans', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 2.5rem; background: rgba(13,15,14,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-.nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--green); letter-spacing: 0.06em; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 2.5rem; background: rgba(13,15,18,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--blue); letter-spacing: 0.06em; }
 .nav-links { display: flex; gap: 2rem; align-items: center; }
 .nav-links a { font-size: 14px; color: var(--ink2); text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: var(--ink); }
-.nav-status { display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green-text); }
-.status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2.5s ease-in-out infinite; }
+.nav-status { display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--blue-text); }
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); animation: pulse 2.5s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)} }
 
 .hero { min-height: 100vh; display: flex; align-items: center; padding: 6rem 2.5rem 4rem; max-width: 960px; margin: 0 auto; }
 .hero-inner { width: 100%; }
-.hero-tag { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green-text); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; padding: 0.35rem 0.75rem; border: 1px solid var(--green-dim); border-radius: 4px; background: rgba(29,62,44,0.3); }
-.hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.75rem; }
-.hero h1 .name-accent { color: var(--green); }
-.hero-bio { font-size: 17px; color: var(--ink2); max-width: 520px; line-height: 1.8; margin-bottom: 2.5rem; }
+.hero-tag { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--blue-text); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; padding: 0.35rem 0.75rem; border: 1px solid rgba(56,182,255,0.25); border-radius: 4px; background: rgba(56,182,255,0.08); }
+.hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.75rem; }
+.hero h1 .name-accent { color: var(--blue); }
+.hero-bio { font-size: 17px; color: var(--ink2); max-width: 560px; line-height: 1.8; margin-bottom: 2.5rem; }
 .hero-meta { display: flex; gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
 .meta-item { display: flex; flex-direction: column; gap: 2px; }
 .meta-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.1em; }
 .meta-value { font-size: 14px; color: var(--ink); font-weight: 500; }
 .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 0.7rem 1.4rem; border-radius: 6px; font-size: 14px; font-weight: 500; text-decoration: none; cursor: pointer; border: none; font-family: 'Instrument Sans', sans-serif; transition: all 0.2s; }
-.btn-green { background: var(--green); color: #0A1A12; }
-.btn-green:hover { background: #5AE896; }
+.btn-blue { background: var(--blue); color: #060E18; }
+.btn-blue:hover { background: var(--blue-hover); }
 .btn-ghost { background: transparent; color: var(--ink2); border: 1px solid var(--border2); }
 .btn-ghost:hover { color: var(--ink); border-color: rgba(255,255,255,0.25); }
 
 .section { max-width: 960px; margin: 0 auto; padding: 5rem 2.5rem; }
 .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem; }
-.section-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green-text); }
+.section-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--blue-text); }
 .section-title { font-family: 'Syne', sans-serif; font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; }
 .section-line { flex: 1; height: 1px; background: var(--border); }
 
@@ -64,14 +65,24 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; j
 .project-top { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
 .project-title { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); }
 .project-status { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.07em; }
-.status-active { background: var(--green-dim); color: var(--green-text); border: 1px solid rgba(61,219,130,0.2); }
+.status-active { background: rgba(56,182,255,0.12); color: var(--blue-text); border: 1px solid rgba(56,182,255,0.25); }
 .status-complete { background: rgba(74,79,76,0.4); color: var(--ink2); border: 1px solid var(--border2); }
 .project-desc { font-size: 14px; color: var(--ink2); line-height: 1.7; margin-bottom: 1rem; }
 .project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink3); background: var(--surface2); border: 1px solid var(--border); padding: 2px 8px; border-radius: 3px; }
 .project-link { display: inline-flex; align-items: center; gap: 6px; padding: 0.55rem 1rem; background: transparent; border: 1px solid var(--border2); border-radius: 6px; color: var(--ink2); text-decoration: none; font-size: 13px; font-weight: 500; white-space: nowrap; transition: all 0.2s; align-self: flex-start; }
-.project-link:hover { border-color: var(--green); color: var(--green-text); }
+.project-link:hover { border-color: var(--blue); color: var(--blue-text); }
 .no-projects { text-align: center; padding: 4rem 2rem; color: var(--ink3); font-family: 'JetBrains Mono', monospace; font-size: 13px; border: 1px dashed var(--border2); border-radius: 10px; }
+
+/* YOUTUBE SECTION */
+.yt-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; display: flex; align-items: center; gap: 2rem; transition: border-color 0.25s, background 0.25s; flex-wrap: wrap; }
+.yt-card:hover { border-color: rgba(56,182,255,0.3); background: var(--surface2); }
+.yt-icon { width: 56px; height: 56px; border-radius: 10px; background: rgba(56,182,255,0.1); border: 1px solid rgba(56,182,255,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.yt-icon svg { width: 28px; height: 28px; fill: var(--blue); }
+.yt-info { flex: 1; min-width: 200px; }
+.yt-title { font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 0.35rem; }
+.yt-desc { font-size: 14px; color: var(--ink2); line-height: 1.6; }
+.yt-handle { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--blue-text); margin-top: 0.4rem; }
 
 footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink3); }
 
@@ -81,14 +92,14 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
 .admin-panel { background: var(--surface); border: 1px solid var(--border2); border-radius: 14px; width: 100%; max-width: 700px; padding: 2rem; margin: auto; }
 .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
 .admin-title { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; }
-.admin-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green-text); margin-top: 2px; }
+.admin-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--blue-text); margin-top: 2px; }
 .close-btn { background: var(--surface2); border: 1px solid var(--border2); color: var(--ink2); width: 32px; height: 32px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: all 0.2s; }
 .close-btn:hover { color: var(--ink); }
 .auth-error { color: var(--red); font-size: 13px; margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace; display: none; }
 .field { margin-bottom: 1.25rem; }
 .field label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink2); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.4rem; }
 .field input, .field textarea, .field select { width: 100%; background: var(--surface2); border: 1px solid var(--border2); border-radius: 6px; color: var(--ink); font-family: 'Instrument Sans', sans-serif; font-size: 14px; padding: 0.65rem 0.85rem; outline: none; transition: border-color 0.2s; }
-.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--green); }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--blue); }
 .field textarea { resize: vertical; min-height: 90px; }
 .field select option { background: var(--surface2); }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -104,8 +115,8 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
 .icon-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--ink2); width: 28px; height: 28px; border-radius: 5px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 13px; }
 .icon-btn:hover { color: var(--ink); border-color: var(--border2); }
 .icon-btn.del:hover { color: var(--red); border-color: rgba(255,92,92,0.4); }
-.admin-add-btn { width: 100%; background: var(--green-dim); border: 1px dashed rgba(61,219,130,0.3); color: var(--green-text); border-radius: 7px; padding: 0.75rem; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 12px; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 0; }
-.admin-add-btn:hover { background: rgba(29,62,44,0.6); border-color: rgba(61,219,130,0.5); }
+.admin-add-btn { width: 100%; background: rgba(56,182,255,0.08); border: 1px dashed rgba(56,182,255,0.3); color: var(--blue-text); border-radius: 7px; padding: 0.75rem; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 12px; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 0; }
+.admin-add-btn:hover { background: rgba(56,182,255,0.14); border-color: rgba(56,182,255,0.5); }
 #edit-form { display: none; }
 #edit-form.open { display: block; }
 .section-h3 { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--ink2); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
@@ -114,14 +125,13 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
 .pw-toggle { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink3); cursor: pointer; background: none; border: none; padding: 0; transition: color 0.2s; }
 .pw-toggle:hover { color: var(--ink2); }
 
-/* EXPORT BANNER */
-.export-banner { background: rgba(29,62,44,0.4); border: 1px solid rgba(61,219,130,0.25); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.export-banner { background: rgba(56,182,255,0.08); border: 1px solid rgba(56,182,255,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .export-banner-text { font-size: 13px; color: var(--ink2); line-height: 1.5; }
 .export-banner-text strong { color: var(--ink); display: block; margin-bottom: 2px; font-size: 14px; }
-.btn-export { background: var(--green); color: #0A1A12; font-weight: 600; font-size: 13px; padding: 0.55rem 1.1rem; border-radius: 6px; cursor: pointer; border: none; font-family: 'Instrument Sans', sans-serif; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: background 0.2s; flex-shrink: 0; }
-.btn-export:hover { background: #5AE896; }
+.btn-export { background: var(--blue); color: #060E18; font-weight: 600; font-size: 13px; padding: 0.55rem 1.1rem; border-radius: 6px; cursor: pointer; border: none; font-family: 'Instrument Sans', sans-serif; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: background 0.2s; flex-shrink: 0; }
+.btn-export:hover { background: var(--blue-hover); }
 
-.toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--surface2); border: 1px solid var(--green); color: var(--green-text); font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 0.65rem 1.1rem; border-radius: 6px; z-index: 999; opacity: 0; transform: translateY(8px); transition: all 0.3s; pointer-events: none; }
+.toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--surface2); border: 1px solid var(--blue); color: var(--blue-text); font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 0.65rem 1.1rem; border-radius: 6px; z-index: 999; opacity: 0; transform: translateY(8px); transition: all 0.3s; pointer-events: none; }
 .toast.show { opacity: 1; transform: translateY(0); }
 </style>
 </head>
@@ -132,6 +142,7 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
+    <a href="#channel">Channel</a>
     <a href="#contact">Contact</a>
     <div class="nav-status">
       <span class="status-dot"></span>
@@ -147,7 +158,7 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
       <span id="hero-tag-text">CPI Researcher · Idaho State University</span>
     </div>
     <h1 id="hero-name">Hi, I'm <span class="name-accent">CJ.</span></h1>
-    <p class="hero-bio" id="hero-bio">Student researcher at Idaho State University with a passion for building things and documenting them well. Actively seeking research opportunities and collaborations.</p>
+    <p class="hero-bio" id="hero-bio">Engineering student at Idaho State University, pursuing nuclear and mechanical engineering with a minor in physics. I'm interested in the places where AI, game theory, and optimization overlap — and I spend a lot of my time chasing those intersections through research and personal projects.</p>
     <div class="hero-meta">
       <div class="meta-item">
         <span class="meta-label">School</span>
@@ -163,7 +174,7 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
       </div>
     </div>
     <div class="hero-cta">
-      <a href="#projects" class="btn btn-green">View Projects ↓</a>
+      <a href="#projects" class="btn btn-blue">View Projects ↓</a>
       <a href="#contact" class="btn btn-ghost">Get in Touch</a>
     </div>
   </div>
@@ -178,15 +189,38 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
   <div id="projects-list"></div>
 </section>
 
-<section class="section" id="contact">
+<section class="section" id="channel">
   <div class="section-header">
     <span class="section-num">02</span>
+    <h2 class="section-title">YouTube Channel</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="yt-card">
+    <div class="yt-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/>
+      </svg>
+    </div>
+    <div class="yt-info">
+      <div class="yt-title" id="yt-channel-name">Unreasonable Precision</div>
+      <div class="yt-desc" id="yt-channel-desc">Engineering projects documented start to finish — the thought process, the dead ends, the technical work, and the result. No polished highlight reels, just the full solve.</div>
+      <div class="yt-handle" id="yt-handle">@UnreasonablePrecision</div>
+    </div>
+    <a id="yt-link" href="https://youtube.com/@UnreasonablePrecision" target="_blank" class="btn btn-ghost btn-sm" style="white-space:nowrap;flex-shrink:0;">
+      Watch →
+    </a>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="section-header">
+    <span class="section-num">03</span>
     <h2 class="section-title">Contact</h2>
     <div class="section-line"></div>
   </div>
   <p style="color:var(--ink2);font-size:15px;max-width:480px;line-height:1.8;">
     Interested in collaborating or have a research opportunity?<br>
-    Reach out at <a id="contact-email-link" href="#" style="color:var(--green-text);text-decoration:none;">your.email@isu.edu</a>
+    Reach out at <a id="contact-email-link" href="#" style="color:var(--blue-text);text-decoration:none;">your.email@isu.edu</a>
   </p>
   <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
     <a id="github-link" href="https://github.com" target="_blank" class="btn btn-ghost btn-sm">
@@ -225,21 +259,18 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
         <input type="password" id="pw-input" placeholder="••••••••" onkeydown="if(event.key==='Enter')login()">
       </div>
       <div class="auth-error" id="auth-error">Incorrect password. Try again.</div>
-      <button class="btn btn-green btn-sm" style="margin-top:1rem" onclick="login()">Unlock →</button>
+      <button class="btn btn-blue btn-sm" style="margin-top:1rem" onclick="login()">Unlock →</button>
     </div>
 
     <!-- ADMIN CONTENT -->
     <div id="admin-content" style="display:none">
 
-      <!-- Export Banner -->
       <div class="export-banner">
         <div class="export-banner-text">
           <strong>↓ Download & publish your changes</strong>
           After editing, download the updated file and re-upload it to GitHub to go live.
         </div>
-        <button class="btn-export" onclick="exportSite()">
-          ⬇ Download index.html
-        </button>
+        <button class="btn-export" onclick="exportSite()">⬇ Download index.html</button>
       </div>
 
       <!-- Profile -->
@@ -258,8 +289,11 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
           <div class="field"><label>Status (shown in nav)</label><input type="text" id="p-status" placeholder="Open to research"></div>
           <div class="field"><label>GitHub URL</label><input type="text" id="p-github" placeholder="https://github.com/yourname"></div>
         </div>
-        <div class="field"><label>LinkedIn URL (optional)</label><input type="text" id="p-linkedin" placeholder="https://linkedin.com/in/yourname"></div>
-        <button class="btn btn-green btn-sm" onclick="saveProfile()">Save Profile</button>
+        <div class="field-row">
+          <div class="field"><label>LinkedIn URL (optional)</label><input type="text" id="p-linkedin" placeholder="https://linkedin.com/in/yourname"></div>
+          <div class="field"><label>YouTube Channel URL</label><input type="text" id="p-youtube" placeholder="https://youtube.com/@UnreasonablePrecision"></div>
+        </div>
+        <button class="btn btn-blue btn-sm" onclick="saveProfile()">Save Profile</button>
       </div>
 
       <!-- Projects -->
@@ -281,7 +315,7 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
           </div>
           <div class="field"><label>Tags (comma separated)</label><input type="text" id="e-tags" placeholder="Python, Machine Learning, Data Analysis"></div>
           <div class="form-actions">
-            <button class="btn btn-green btn-sm" onclick="saveProject()">Save Project</button>
+            <button class="btn btn-blue btn-sm" onclick="saveProject()">Save Project</button>
             <button class="btn btn-ghost btn-sm" onclick="cancelEdit()">Cancel</button>
             <button class="btn btn-danger btn-sm" id="delete-btn" onclick="deleteProject()" style="display:none;margin-left:auto">Delete</button>
           </div>
@@ -303,19 +337,19 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
 </div>
 
 <script>
-// ── DATA ──
 // EMBEDDED_DATA_START
 var SITE_DATA = {
   password: 'admin123',
   profile: {
     name: 'CJ',
     email: 'your.email@isu.edu',
-    bio: 'Student researcher at Idaho State University with a passion for building things and documenting them well. Actively seeking research opportunities and collaborations.',
+    bio: 'Engineering student at Idaho State University, pursuing nuclear and mechanical engineering with a minor in physics. I\'m interested in the places where AI, game theory, and optimization overlap — and I spend a lot of my time chasing those intersections through research and personal projects.',
     school: 'Idaho State University',
     role: 'CPI Researcher',
     status: 'Open to research',
     github: 'https://github.com',
-    linkedin: ''
+    linkedin: '',
+    youtube: 'https://youtube.com/@UnreasonablePrecision'
   },
   projects: [
     { id: 1, title: 'Example Project', description: 'This is a placeholder. Open the admin panel to add your real projects.', github: 'https://github.com', status: 'active', tags: ['Example'] }
@@ -349,6 +383,8 @@ function render() {
   var li = el('linkedin-link');
   if (p.linkedin) { li.href = p.linkedin; li.style.display = ''; }
   else li.style.display = 'none';
+  var yt = el('yt-link');
+  if (p.youtube) { yt.href = p.youtube; }
   renderProjects();
 }
 
@@ -376,7 +412,6 @@ function renderProjects() {
   }).join('');
 }
 
-// ── ADMIN ──
 function openAdmin() {
   el('admin-overlay').classList.add('open');
   el('auth-screen').style.display = '';
@@ -408,9 +443,10 @@ function populateProfile() {
   el('p-bio').value = p.bio||''; el('p-school').value = p.school||'';
   el('p-role').value = p.role||''; el('p-status').value = p.status||'';
   el('p-github').value = p.github||''; el('p-linkedin').value = p.linkedin||'';
+  el('p-youtube').value = p.youtube||'';
 }
 function saveProfile() {
-  DB.profile = { name:el('p-name').value, email:el('p-email').value, bio:el('p-bio').value, school:el('p-school').value, role:el('p-role').value, status:el('p-status').value, github:el('p-github').value, linkedin:el('p-linkedin').value };
+  DB.profile = { name:el('p-name').value, email:el('p-email').value, bio:el('p-bio').value, school:el('p-school').value, role:el('p-role').value, status:el('p-status').value, github:el('p-github').value, linkedin:el('p-linkedin').value, youtube:el('p-youtube').value };
   render();
   toast('Profile saved — remember to download & re-upload to go live!');
 }
@@ -477,7 +513,6 @@ function changePassword() {
   toast('Password updated — download to save it permanently!');
 }
 
-// ── EXPORT ──
 function exportSite() {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', window.location.href, true);
@@ -489,14 +524,11 @@ function exportSite() {
       var updated = html.replace(/var SITE_DATA = \{[\s\S]*?\};/, newData);
       download('index.html', updated);
       toast('Downloaded! Re-upload to GitHub to go live.');
-    } else {
-      fallbackExport();
-    }
+    } else { fallbackExport(); }
   };
   xhr.onerror = function() { fallbackExport(); };
   xhr.send();
 }
-
 function fallbackExport() {
   var currentHTML = document.documentElement.outerHTML;
   var dataStr = JSON.stringify(DB, null, 2);
@@ -505,7 +537,6 @@ function fallbackExport() {
   download('index.html', updated);
   toast('Downloaded! Re-upload to GitHub to go live.');
 }
-
 function download(filename, text) {
   var blob = new Blob([text], {type:'text/html'});
   var a = document.createElement('a');
@@ -516,7 +547,6 @@ function download(filename, text) {
   document.body.removeChild(a);
   URL.revokeObjectURL(a.href);
 }
-
 function toast(msg) {
   var t = el('toast');
   t.textContent = msg;

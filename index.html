@@ -74,6 +74,15 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; j
 .project-link:hover { border-color: var(--blue); color: var(--blue-text); }
 .no-projects { text-align: center; padding: 4rem 2rem; color: var(--ink3); font-family: 'JetBrains Mono', monospace; font-size: 13px; border: 1px dashed var(--border2); border-radius: 10px; }
 
+/* PUBLICATIONS SECTION */
+#publications-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.pub-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 2rem; display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: start; transition: border-color 0.25s, background 0.25s; animation: fadeUp 0.4s ease both; }
+.pub-card:hover { border-color: var(--border2); background: var(--surface2); }
+.pub-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+.pub-authors { font-size: 13px; color: var(--ink2); margin-bottom: 0.3rem; }
+.pub-venue { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink3); }
+.pub-venue span { color: var(--blue-text); margin-left: 0.5rem; }
+
 /* YOUTUBE SECTION */
 .yt-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; display: flex; align-items: center; gap: 2rem; transition: border-color 0.25s, background 0.25s; flex-wrap: wrap; }
 .yt-card:hover { border-color: rgba(56,182,255,0.3); background: var(--surface2); }
@@ -142,6 +151,7 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
+    <a href="#publications">Publications</a>
     <a href="#channel">Channel</a>
     <a href="#contact">Contact</a>
     <div class="nav-status">
@@ -189,9 +199,34 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
   <div id="projects-list"></div>
 </section>
 
-<section class="section" id="channel">
+<section class="section" id="publications">
   <div class="section-header">
     <span class="section-num">02</span>
+    <h2 class="section-title">Publications</h2>
+    <div class="section-line"></div>
+  </div>
+  <div id="publications-list">
+    <div class="pub-card">
+      <div>
+        <div class="pub-title">Game-Theoretic Approaches to Resource Allocation in Multi-Agent Nuclear Systems</div>
+        <div class="pub-authors">C. Done, A. Smith, R. Patel</div>
+        <div class="pub-venue">Nuclear Engineering and Design<span>· 2024</span></div>
+      </div>
+      <a href="#" class="project-link">Read →</a>
+    </div>
+    <div class="pub-card">
+      <div>
+        <div class="pub-title">Optimization Under Uncertainty: A Survey of AI Methods in Mechanical System Design</div>
+        <div class="pub-authors">C. Done, M. Johnson</div>
+        <div class="pub-venue">ASME International Mechanical Engineering Congress<span>· 2023</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="channel">
+  <div class="section-header">
+    <span class="section-num">03</span>
     <h2 class="section-title">YouTube Channel</h2>
     <div class="section-line"></div>
   </div>
@@ -214,7 +249,7 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
 
 <section class="section" id="contact">
   <div class="section-header">
-    <span class="section-num">03</span>
+    <span class="section-num">04</span>
     <h2 class="section-title">Contact</h2>
     <div class="section-line"></div>
   </div>

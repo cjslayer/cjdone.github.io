@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
   --bg: #0D0F0E;
   --surface: #141716;
@@ -22,534 +21,114 @@
   --green-text: #2BB86A;
   --red: #FF5C5C;
 }
-
 html { scroll-behavior: smooth; }
+body { font-family: 'Instrument Sans', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-body {
-  font-family: 'Instrument Sans', sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  min-height: 100vh;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.1rem 2.5rem;
-  background: rgba(13,15,14,0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-logo {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  color: var(--green);
-  letter-spacing: 0.06em;
-}
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 2.5rem; background: rgba(13,15,14,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--green); letter-spacing: 0.06em; }
 .nav-links { display: flex; gap: 2rem; align-items: center; }
-.nav-links a {
-  font-size: 14px;
-  color: var(--ink2);
-  text-decoration: none;
-  transition: color 0.2s;
-}
+.nav-links a { font-size: 14px; color: var(--ink2); text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: var(--ink); }
-.nav-status {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--green-text);
-}
-.status-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--green);
-  animation: pulse 2.5s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
-}
+.nav-status { display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green-text); }
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2.5s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)} }
 
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 6rem 2.5rem 4rem;
-  max-width: 960px;
-  margin: 0 auto;
-}
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 6rem 2.5rem 4rem; max-width: 960px; margin: 0 auto; }
 .hero-inner { width: 100%; }
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--green-text);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  padding: 0.35rem 0.75rem;
-  border: 1px solid var(--green-dim);
-  border-radius: 4px;
-  background: rgba(29,62,44,0.3);
-}
-.hero h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 800;
-  line-height: 1.0;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.75rem;
-}
+.hero-tag { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green-text); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; padding: 0.35rem 0.75rem; border: 1px solid var(--green-dim); border-radius: 4px; background: rgba(29,62,44,0.3); }
+.hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.75rem; }
 .hero h1 .name-accent { color: var(--green); }
-.hero-bio {
-  font-size: 17px;
-  color: var(--ink2);
-  max-width: 520px;
-  line-height: 1.8;
-  margin-bottom: 2.5rem;
-}
-.hero-meta {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
-  flex-wrap: wrap;
-}
-.meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.meta-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  color: var(--ink3);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-.meta-value {
-  font-size: 14px;
-  color: var(--ink);
-  font-weight: 500;
-}
+.hero-bio { font-size: 17px; color: var(--ink2); max-width: 520px; line-height: 1.8; margin-bottom: 2.5rem; }
+.hero-meta { display: flex; gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+.meta-item { display: flex; flex-direction: column; gap: 2px; }
+.meta-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.1em; }
+.meta-value { font-size: 14px; color: var(--ink); font-weight: 500; }
 .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0.7rem 1.4rem;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-  font-family: 'Instrument Sans', sans-serif;
-  transition: all 0.2s;
-}
-.btn-green {
-  background: var(--green);
-  color: #0A1A12;
-}
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 0.7rem 1.4rem; border-radius: 6px; font-size: 14px; font-weight: 500; text-decoration: none; cursor: pointer; border: none; font-family: 'Instrument Sans', sans-serif; transition: all 0.2s; }
+.btn-green { background: var(--green); color: #0A1A12; }
 .btn-green:hover { background: #5AE896; }
-.btn-ghost {
-  background: transparent;
-  color: var(--ink2);
-  border: 1px solid var(--border2);
-}
+.btn-ghost { background: transparent; color: var(--ink2); border: 1px solid var(--border2); }
 .btn-ghost:hover { color: var(--ink); border-color: rgba(255,255,255,0.25); }
 
-/* ── SECTION ── */
-.section {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 5rem 2.5rem;
-}
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-}
-.section-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--green-text);
-}
-.section-title {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-.section-line {
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
+.section { max-width: 960px; margin: 0 auto; padding: 5rem 2.5rem; }
+.section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem; }
+.section-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green-text); }
+.section-title { font-family: 'Syne', sans-serif; font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; }
+.section-line { flex: 1; height: 1px; background: var(--border); }
 
-/* ── PROJECT CARDS ── */
-#projects-list { display: flex; flex-direction: column; gap: 1px; }
-
-.project-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1.75rem 2rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1.5rem;
-  align-items: start;
-  transition: border-color 0.25s, background 0.25s;
-  margin-bottom: 0.75rem;
-  animation: fadeUp 0.4s ease both;
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.project-card:hover {
-  border-color: var(--border2);
-  background: var(--surface2);
-}
+#projects-list { display: flex; flex-direction: column; }
+.project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.75rem 2rem; display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: start; transition: border-color 0.25s, background 0.25s; margin-bottom: 0.75rem; animation: fadeUp 0.4s ease both; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)} }
+.project-card:hover { border-color: var(--border2); background: var(--surface2); }
 .project-card-left { min-width: 0; }
-.project-top {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.6rem;
-  flex-wrap: wrap;
-}
-.project-title {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--ink);
-}
-.project-status {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  padding: 2px 8px;
-  border-radius: 3px;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-}
-.status-active {
-  background: var(--green-dim);
-  color: var(--green-text);
-  border: 1px solid rgba(61,219,130,0.2);
-}
-.status-complete {
-  background: rgba(74,79,76,0.4);
-  color: var(--ink2);
-  border: 1px solid var(--border2);
-}
-.project-desc {
-  font-size: 14px;
-  color: var(--ink2);
-  line-height: 1.7;
-  margin-bottom: 1rem;
-}
+.project-top { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
+.project-title { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); }
+.project-status { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.07em; }
+.status-active { background: var(--green-dim); color: var(--green-text); border: 1px solid rgba(61,219,130,0.2); }
+.status-complete { background: rgba(74,79,76,0.4); color: var(--ink2); border: 1px solid var(--border2); }
+.project-desc { font-size: 14px; color: var(--ink2); line-height: 1.7; margin-bottom: 1rem; }
 .project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--ink3);
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  padding: 2px 8px;
-  border-radius: 3px;
-}
-.project-card:hover .tag { border-color: var(--border2); }
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0.55rem 1rem;
-  background: transparent;
-  border: 1px solid var(--border2);
-  border-radius: 6px;
-  color: var(--ink2);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 500;
-  white-space: nowrap;
-  transition: all 0.2s;
-  align-self: flex-start;
-}
-.project-link:hover {
-  border-color: var(--green);
-  color: var(--green-text);
-}
-.project-link svg { flex-shrink: 0; }
-.no-projects {
-  text-align: center;
-  padding: 4rem 2rem;
-  color: var(--ink3);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  border: 1px dashed var(--border2);
-  border-radius: 10px;
-}
+.tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink3); background: var(--surface2); border: 1px solid var(--border); padding: 2px 8px; border-radius: 3px; }
+.project-link { display: inline-flex; align-items: center; gap: 6px; padding: 0.55rem 1rem; background: transparent; border: 1px solid var(--border2); border-radius: 6px; color: var(--ink2); text-decoration: none; font-size: 13px; font-weight: 500; white-space: nowrap; transition: all 0.2s; align-self: flex-start; }
+.project-link:hover { border-color: var(--green); color: var(--green-text); }
+.no-projects { text-align: center; padding: 4rem 2rem; color: var(--ink3); font-family: 'JetBrains Mono', monospace; font-size: 13px; border: 1px dashed var(--border2); border-radius: 10px; }
 
-/* ── FOOTER ── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 2rem 2.5rem;
-  text-align: center;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--ink3);
-}
+footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink3); }
 
-/* ── ADMIN OVERLAY ── */
-#admin-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 500;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(4px);
-  overflow-y: auto;
-  padding: 2rem;
-}
+/* ADMIN */
+#admin-overlay { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); overflow-y: auto; padding: 2rem; }
 #admin-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
-
-.admin-panel {
-  background: var(--surface);
-  border: 1px solid var(--border2);
-  border-radius: 14px;
-  width: 100%;
-  max-width: 680px;
-  padding: 2rem;
-  margin: auto;
-}
-.admin-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.75rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--border);
-}
-.admin-title {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-.admin-subtitle {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--green-text);
-  margin-top: 2px;
-}
-.close-btn {
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  color: var(--ink2);
-  width: 32px; height: 32px;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
-  transition: all 0.2s;
-}
-.close-btn:hover { color: var(--ink); border-color: rgba(255,255,255,0.25); }
-
-/* Auth screen */
-#auth-screen { }
-#auth-screen p {
-  color: var(--ink2);
-  font-size: 14px;
-  margin-bottom: 1rem;
-}
-.auth-error {
-  color: var(--red);
-  font-size: 13px;
-  margin-top: 0.5rem;
-  font-family: 'JetBrains Mono', monospace;
-  display: none;
-}
-
-/* Admin form elements */
+.admin-panel { background: var(--surface); border: 1px solid var(--border2); border-radius: 14px; width: 100%; max-width: 700px; padding: 2rem; margin: auto; }
+.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
+.admin-title { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; }
+.admin-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green-text); margin-top: 2px; }
+.close-btn { background: var(--surface2); border: 1px solid var(--border2); color: var(--ink2); width: 32px; height: 32px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: all 0.2s; }
+.close-btn:hover { color: var(--ink); }
+.auth-error { color: var(--red); font-size: 13px; margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace; display: none; }
 .field { margin-bottom: 1.25rem; }
-.field label {
-  display: block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--ink2);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  margin-bottom: 0.4rem;
-}
-.field input, .field textarea, .field select {
-  width: 100%;
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  border-radius: 6px;
-  color: var(--ink);
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 14px;
-  padding: 0.65rem 0.85rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.field input:focus, .field textarea:focus, .field select:focus {
-  border-color: var(--green);
-}
+.field label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink2); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.4rem; }
+.field input, .field textarea, .field select { width: 100%; background: var(--surface2); border: 1px solid var(--border2); border-radius: 6px; color: var(--ink); font-family: 'Instrument Sans', sans-serif; font-size: 14px; padding: 0.65rem 0.85rem; outline: none; transition: border-color 0.2s; }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--green); }
 .field textarea { resize: vertical; min-height: 90px; }
 .field select option { background: var(--surface2); }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-.form-actions {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--border);
-}
-.btn-sm {
-  padding: 0.55rem 1.1rem;
-  font-size: 13px;
-  border-radius: 5px;
-}
-.btn-danger {
-  background: transparent;
-  color: var(--red);
-  border: 1px solid rgba(255,92,92,0.3);
-  margin-left: auto;
-}
+.form-actions { display: flex; gap: 0.75rem; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+.btn-sm { padding: 0.55rem 1.1rem; font-size: 13px; border-radius: 5px; }
+.btn-danger { background: transparent; color: var(--red); border: 1px solid rgba(255,92,92,0.3); }
 .btn-danger:hover { background: rgba(255,92,92,0.1); }
-
-/* Project list in admin */
-.admin-project-list { margin-bottom: 1.5rem; }
-.admin-project-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.85rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  margin-bottom: 0.5rem;
-  transition: border-color 0.2s;
-}
+.admin-project-list { margin-bottom: 1rem; }
+.admin-project-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: 7px; margin-bottom: 0.5rem; transition: border-color 0.2s; }
 .admin-project-item:hover { border-color: var(--border2); }
-.admin-project-item-title {
-  font-size: 14px;
-  font-weight: 500;
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+.admin-project-item-title { font-size: 14px; font-weight: 500; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .admin-item-btns { display: flex; gap: 0.5rem; flex-shrink: 0; }
-.icon-btn {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  color: var(--ink2);
-  width: 28px; height: 28px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.2s;
-  font-size: 13px;
-}
+.icon-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--ink2); width: 28px; height: 28px; border-radius: 5px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 13px; }
 .icon-btn:hover { color: var(--ink); border-color: var(--border2); }
 .icon-btn.del:hover { color: var(--red); border-color: rgba(255,92,92,0.4); }
-
-.admin-add-btn {
-  width: 100%;
-  background: var(--green-dim);
-  border: 1px dashed rgba(61,219,130,0.3);
-  color: var(--green-text);
-  border-radius: 7px;
-  padding: 0.75rem;
-  cursor: pointer;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
+.admin-add-btn { width: 100%; background: var(--green-dim); border: 1px dashed rgba(61,219,130,0.3); color: var(--green-text); border-radius: 7px; padding: 0.75rem; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 12px; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 0; }
 .admin-add-btn:hover { background: rgba(29,62,44,0.6); border-color: rgba(61,219,130,0.5); }
-
 #edit-form { display: none; }
 #edit-form.open { display: block; }
-
-.profile-section {
-  margin-bottom: 1.75rem;
-  padding-bottom: 1.75rem;
-  border-bottom: 1px solid var(--border);
-}
-.profile-section h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--ink2);
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* ── CHANGE PASSWORD ── */
-#change-pw-form { display: none; margin-top: 1rem; }
+.section-h3 { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--ink2); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+#change-pw-form { display: none; margin-top: 0.75rem; }
 #change-pw-form.open { display: block; }
-.pw-toggle {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--ink3);
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  transition: color 0.2s;
-}
+.pw-toggle { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink3); cursor: pointer; background: none; border: none; padding: 0; transition: color 0.2s; }
 .pw-toggle:hover { color: var(--ink2); }
 
-/* ── LOGIN ── */
-#login-screen { }
+/* EXPORT BANNER */
+.export-banner { background: rgba(29,62,44,0.4); border: 1px solid rgba(61,219,130,0.25); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.export-banner-text { font-size: 13px; color: var(--ink2); line-height: 1.5; }
+.export-banner-text strong { color: var(--ink); display: block; margin-bottom: 2px; font-size: 14px; }
+.btn-export { background: var(--green); color: #0A1A12; font-weight: 600; font-size: 13px; padding: 0.55rem 1.1rem; border-radius: 6px; cursor: pointer; border: none; font-family: 'Instrument Sans', sans-serif; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: background 0.2s; flex-shrink: 0; }
+.btn-export:hover { background: #5AE896; }
 
-.toast {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: var(--surface2);
-  border: 1px solid var(--green);
-  color: var(--green-text);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  padding: 0.65rem 1.1rem;
-  border-radius: 6px;
-  z-index: 999;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: all 0.3s;
-  pointer-events: none;
-}
+.toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--surface2); border: 1px solid var(--green); color: var(--green-text); font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 0.65rem 1.1rem; border-radius: 6px; z-index: 999; opacity: 0; transform: translateY(8px); transition: all 0.3s; pointer-events: none; }
 .toast.show { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <span class="nav-logo">CJ_PORTFOLIO.dev</span>
+  <span class="nav-logo">CJDONE.dev</span>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
@@ -561,19 +140,18 @@ footer {
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="about">
   <div class="hero-inner">
     <div class="hero-tag">
       <span class="status-dot"></span>
-      <span id="hero-tag-text">Computer Science · Iowa State University</span>
+      <span id="hero-tag-text">CPI Researcher · Idaho State University</span>
     </div>
     <h1 id="hero-name">Hi, I'm <span class="name-accent">CJ.</span></h1>
-    <p class="hero-bio" id="hero-bio">Student researcher at Iowa State University with a passion for building things and documenting them well. Actively seeking research opportunities and collaborations.</p>
+    <p class="hero-bio" id="hero-bio">Student researcher at Idaho State University with a passion for building things and documenting them well. Actively seeking research opportunities and collaborations.</p>
     <div class="hero-meta">
       <div class="meta-item">
         <span class="meta-label">School</span>
-        <span class="meta-value" id="meta-school">Iowa State University</span>
+        <span class="meta-value" id="meta-school">Idaho State University</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Role</span>
@@ -591,7 +169,6 @@ footer {
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section class="section" id="projects">
   <div class="section-header">
     <span class="section-num">01</span>
@@ -601,18 +178,17 @@ footer {
   <div id="projects-list"></div>
 </section>
 
-<!-- CONTACT -->
 <section class="section" id="contact">
   <div class="section-header">
     <span class="section-num">02</span>
     <h2 class="section-title">Contact</h2>
     <div class="section-line"></div>
   </div>
-  <p style="color:var(--ink2); font-size:15px; max-width:480px; line-height:1.8;">
+  <p style="color:var(--ink2);font-size:15px;max-width:480px;line-height:1.8;">
     Interested in collaborating or have a research opportunity?<br>
-    Reach out at <a href="#" id="contact-email-link" style="color:var(--green-text); text-decoration:none;" id="contact-email-display">your.email@iastate.edu</a>
+    Reach out at <a id="contact-email-link" href="#" style="color:var(--green-text);text-decoration:none;">your.email@isu.edu</a>
   </p>
-  <div style="margin-top:1.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+  <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
     <a id="github-link" href="https://github.com" target="_blank" class="btn btn-ghost btn-sm">
       <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.57v-2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
       GitHub
@@ -625,10 +201,9 @@ footer {
 </section>
 
 <footer>
-  <span id="footer-text">CJ · Iowa State University · Built with GitHub Pages</span>
+  <span id="footer-text">CJ · Idaho State University · CJDone.dev</span>
 </footer>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <!-- ADMIN OVERLAY -->
@@ -637,127 +212,88 @@ footer {
     <div class="admin-header">
       <div>
         <div class="admin-title">Admin Panel</div>
-        <div class="admin-subtitle">// portfolio_manager.exe</div>
+        <div class="admin-subtitle">// portfolio_manager</div>
       </div>
       <button class="close-btn" onclick="closeAdmin()">✕</button>
     </div>
 
     <!-- LOGIN -->
     <div id="auth-screen">
-      <p>Enter your admin password to manage your portfolio.</p>
+      <p style="color:var(--ink2);font-size:14px;margin-bottom:1rem;">Enter your admin password to manage your portfolio.</p>
       <div class="field">
         <label>Password</label>
         <input type="password" id="pw-input" placeholder="••••••••" onkeydown="if(event.key==='Enter')login()">
       </div>
       <div class="auth-error" id="auth-error">Incorrect password. Try again.</div>
-      <div style="display:flex; gap:0.75rem; margin-top:1rem;">
-        <button class="btn btn-green btn-sm" onclick="login()">Unlock →</button>
-      </div>
+      <button class="btn btn-green btn-sm" style="margin-top:1rem" onclick="login()">Unlock →</button>
     </div>
 
     <!-- ADMIN CONTENT -->
     <div id="admin-content" style="display:none">
 
+      <!-- Export Banner -->
+      <div class="export-banner">
+        <div class="export-banner-text">
+          <strong>↓ Download & publish your changes</strong>
+          After editing, download the updated file and re-upload it to GitHub to go live.
+        </div>
+        <button class="btn-export" onclick="exportSite()">
+          ⬇ Download index.html
+        </button>
+      </div>
+
       <!-- Profile -->
-      <div class="profile-section">
-        <h3>Profile</h3>
+      <div style="margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid var(--border)">
+        <div class="section-h3">Profile</div>
         <div class="field-row">
-          <div class="field">
-            <label>Your Name</label>
-            <input type="text" id="p-name" placeholder="CJ Smith">
-          </div>
-          <div class="field">
-            <label>Email</label>
-            <input type="text" id="p-email" placeholder="cj@iastate.edu">
-          </div>
+          <div class="field"><label>Your Name</label><input type="text" id="p-name" placeholder="CJ"></div>
+          <div class="field"><label>Email</label><input type="text" id="p-email" placeholder="cj@isu.edu"></div>
         </div>
-        <div class="field">
-          <label>Bio</label>
-          <textarea id="p-bio" placeholder="A short description about yourself..."></textarea>
+        <div class="field"><label>Bio</label><textarea id="p-bio" placeholder="A short description about yourself..."></textarea></div>
+        <div class="field-row">
+          <div class="field"><label>School</label><input type="text" id="p-school" placeholder="Idaho State University"></div>
+          <div class="field"><label>Role / Title</label><input type="text" id="p-role" placeholder="CPI Researcher"></div>
         </div>
         <div class="field-row">
-          <div class="field">
-            <label>School</label>
-            <input type="text" id="p-school" placeholder="Iowa State University">
-          </div>
-          <div class="field">
-            <label>Role / Title</label>
-            <input type="text" id="p-role" placeholder="CPI Researcher">
-          </div>
+          <div class="field"><label>Status (shown in nav)</label><input type="text" id="p-status" placeholder="Open to research"></div>
+          <div class="field"><label>GitHub URL</label><input type="text" id="p-github" placeholder="https://github.com/yourname"></div>
         </div>
-        <div class="field-row">
-          <div class="field">
-            <label>Status (shown in nav)</label>
-            <input type="text" id="p-status" placeholder="Open to research">
-          </div>
-          <div class="field">
-            <label>GitHub URL</label>
-            <input type="text" id="p-github" placeholder="https://github.com/yourname">
-          </div>
-        </div>
-        <div class="field">
-          <label>LinkedIn URL (optional)</label>
-          <input type="text" id="p-linkedin" placeholder="https://linkedin.com/in/yourname">
-        </div>
+        <div class="field"><label>LinkedIn URL (optional)</label><input type="text" id="p-linkedin" placeholder="https://linkedin.com/in/yourname"></div>
         <button class="btn btn-green btn-sm" onclick="saveProfile()">Save Profile</button>
       </div>
 
       <!-- Projects -->
       <div>
-        <h3 style="font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:600;color:var(--ink2);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.05em;">Projects</h3>
+        <div class="section-h3">Projects</div>
         <div class="admin-project-list" id="admin-project-list"></div>
         <button class="admin-add-btn" onclick="openNewProject()">+ Add New Project</button>
       </div>
 
       <!-- Edit Form -->
       <div id="edit-form">
-        <div style="margin: 1.5rem 0 1rem; border-top: 1px solid var(--border); padding-top: 1.5rem;">
-          <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;margin-bottom:1.25rem;" id="edit-form-title">New Project</div>
-          <div class="field">
-            <label>Project Title</label>
-            <input type="text" id="e-title" placeholder="My Awesome Project">
-          </div>
-          <div class="field">
-            <label>Description</label>
-            <textarea id="e-desc" placeholder="What does this project do? What did you learn?"></textarea>
-          </div>
+        <div style="margin:1.5rem 0 0;padding-top:1.5rem;border-top:1px solid var(--border)">
+          <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;margin-bottom:1.25rem" id="edit-form-title">New Project</div>
+          <div class="field"><label>Project Title</label><input type="text" id="e-title" placeholder="My Awesome Project"></div>
+          <div class="field"><label>Description</label><textarea id="e-desc" placeholder="What does this project do? What did you learn?"></textarea></div>
           <div class="field-row">
-            <div class="field">
-              <label>GitHub URL</label>
-              <input type="text" id="e-github" placeholder="https://github.com/you/project">
-            </div>
-            <div class="field">
-              <label>Status</label>
-              <select id="e-status">
-                <option value="active">Active</option>
-                <option value="complete">Complete</option>
-              </select>
-            </div>
+            <div class="field"><label>GitHub URL</label><input type="text" id="e-github" placeholder="https://github.com/you/project"></div>
+            <div class="field"><label>Status</label><select id="e-status"><option value="active">Active</option><option value="complete">Complete</option></select></div>
           </div>
-          <div class="field">
-            <label>Tags (comma separated)</label>
-            <input type="text" id="e-tags" placeholder="Python, Machine Learning, Data Analysis">
-          </div>
+          <div class="field"><label>Tags (comma separated)</label><input type="text" id="e-tags" placeholder="Python, Machine Learning, Data Analysis"></div>
           <div class="form-actions">
             <button class="btn btn-green btn-sm" onclick="saveProject()">Save Project</button>
             <button class="btn btn-ghost btn-sm" onclick="cancelEdit()">Cancel</button>
-            <button class="btn btn-danger btn-sm" id="delete-btn" onclick="deleteProject()" style="display:none">Delete</button>
+            <button class="btn btn-danger btn-sm" id="delete-btn" onclick="deleteProject()" style="display:none;margin-left:auto">Delete</button>
           </div>
         </div>
       </div>
 
       <!-- Change password -->
-      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+      <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)">
         <button class="pw-toggle" onclick="togglePwForm()">Change password ↓</button>
         <div id="change-pw-form">
-          <div class="field" style="margin-top:0.75rem">
-            <label>New Password</label>
-            <input type="password" id="new-pw" placeholder="Enter new password">
-          </div>
-          <div class="field">
-            <label>Confirm New Password</label>
-            <input type="password" id="confirm-pw" placeholder="Repeat new password">
-          </div>
+          <div class="field" style="margin-top:0.75rem"><label>New Password</label><input type="password" id="new-pw" placeholder="Enter new password"></div>
+          <div class="field"><label>Confirm New Password</label><input type="password" id="confirm-pw" placeholder="Repeat new password"></div>
           <button class="btn btn-ghost btn-sm" onclick="changePassword()">Update Password</button>
         </div>
       </div>
@@ -767,105 +303,78 @@ footer {
 </div>
 
 <script>
-// ── DEFAULT DATA ──
-const DEFAULT_PASSWORD = 'admin123';
-const STORAGE_KEY = 'cj_portfolio';
+// ── DATA ──
+// EMBEDDED_DATA_START
+var SITE_DATA = {
+  password: 'admin123',
+  profile: {
+    name: 'CJ',
+    email: 'your.email@isu.edu',
+    bio: 'Student researcher at Idaho State University with a passion for building things and documenting them well. Actively seeking research opportunities and collaborations.',
+    school: 'Idaho State University',
+    role: 'CPI Researcher',
+    status: 'Open to research',
+    github: 'https://github.com',
+    linkedin: ''
+  },
+  projects: [
+    { id: 1, title: 'Example Project', description: 'This is a placeholder. Open the admin panel to add your real projects.', github: 'https://github.com', status: 'active', tags: ['Example'] }
+  ]
+};
+// EMBEDDED_DATA_END
 
-function loadData() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
-  } catch(e) {}
-  return {
-    password: DEFAULT_PASSWORD,
-    profile: {
-      name: 'CJ',
-      email: 'your.email@iastate.edu',
-      bio: 'Student researcher at Iowa State University with a passion for building things and documenting them well. Actively seeking research opportunities and collaborations.',
-      school: 'Iowa State University',
-      role: 'CPI Researcher',
-      status: 'Open to research',
-      github: 'https://github.com',
-      linkedin: ''
-    },
-    projects: [
-      {
-        id: Date.now(),
-        title: 'Example Project',
-        description: 'This is a placeholder project. Log into the admin panel to add your real projects.',
-        github: 'https://github.com',
-        status: 'active',
-        tags: ['Example', 'Placeholder']
-      }
-    ]
-  };
-}
+var DB = JSON.parse(JSON.stringify(SITE_DATA));
+var editingId = null;
 
-function saveData(data) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-}
+function el(id) { return document.getElementById(id); }
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-let DB = loadData();
-let editingId = null;
-
-// ── RENDER PUBLIC SITE ──
 function render() {
-  const p = DB.profile;
-  document.title = (p.name || 'CJ') + ' — Portfolio';
-  el('hero-tag-text').textContent = (p.role || '') + ' · ' + (p.school || '');
-  el('hero-name').innerHTML = 'Hi, I\'m <span class="name-accent">' + (p.name || 'CJ') + '.</span>';
+  var p = DB.profile;
+  document.title = (p.name||'CJ') + ' — Portfolio';
+  el('hero-tag-text').textContent = (p.role||'') + ' · ' + (p.school||'');
+  el('hero-name').innerHTML = 'Hi, I\'m <span class="name-accent">' + esc(p.name||'CJ') + '.</span>';
   el('hero-bio').textContent = p.bio || '';
   el('meta-school').textContent = p.school || '';
   el('meta-role').textContent = p.role || '';
   el('meta-status').textContent = p.status || '';
   el('nav-status-text').textContent = p.status || '';
-  el('footer-text').textContent = (p.name || 'CJ') + ' · ' + (p.school || '') + ' · Built with GitHub Pages';
-
-  const emailLink = el('contact-email-link');
+  el('footer-text').textContent = (p.name||'CJ') + ' · ' + (p.school||'') + ' · CJDone.dev';
+  var emailLink = el('contact-email-link');
   emailLink.textContent = p.email || '';
-  emailLink.href = 'mailto:' + (p.email || '');
-
-  const ghLink = el('github-link');
-  if (p.github) { ghLink.href = p.github; ghLink.style.display = ''; }
-  else ghLink.style.display = 'none';
-
-  const liLink = el('linkedin-link');
-  if (p.linkedin) { liLink.href = p.linkedin; liLink.style.display = ''; }
-  else liLink.style.display = 'none';
-
+  emailLink.href = 'mailto:' + (p.email||'');
+  var gh = el('github-link');
+  gh.href = p.github || '#';
+  gh.style.display = p.github ? '' : 'none';
+  var li = el('linkedin-link');
+  if (p.linkedin) { li.href = p.linkedin; li.style.display = ''; }
+  else li.style.display = 'none';
   renderProjects();
 }
 
 function renderProjects() {
-  const list = el('projects-list');
+  var list = el('projects-list');
   if (!DB.projects.length) {
-    list.innerHTML = '<div class="no-projects">// no projects yet — log in to add some</div>';
+    list.innerHTML = '<div class="no-projects">// no projects yet — open admin to add some</div>';
     return;
   }
-  list.innerHTML = DB.projects.map((p, i) => `
-    <div class="project-card" style="animation-delay:${i * 0.07}s">
-      <div class="project-card-left">
-        <div class="project-top">
-          <span class="project-title">${esc(p.title)}</span>
-          <span class="project-status status-${p.status}">${p.status === 'active' ? 'Active' : 'Complete'}</span>
-        </div>
-        <p class="project-desc">${esc(p.description)}</p>
-        <div class="project-tags">
-          ${(p.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}
-        </div>
-      </div>
-      <a href="${esc(p.github)}" target="_blank" class="project-link">
-        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.57v-2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        View on GitHub
-      </a>
-    </div>
-  `).join('');
+  list.innerHTML = DB.projects.map(function(p, i) {
+    return '<div class="project-card" style="animation-delay:' + (i*0.07) + 's">' +
+      '<div class="project-card-left">' +
+        '<div class="project-top">' +
+          '<span class="project-title">' + esc(p.title) + '</span>' +
+          '<span class="project-status status-' + p.status + '">' + (p.status==='active'?'Active':'Complete') + '</span>' +
+        '</div>' +
+        '<p class="project-desc">' + esc(p.description) + '</p>' +
+        '<div class="project-tags">' + (p.tags||[]).map(function(t){return '<span class="tag">'+esc(t)+'</span>';}).join('') + '</div>' +
+      '</div>' +
+      '<a href="' + esc(p.github) + '" target="_blank" class="project-link">' +
+        '<svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.57v-2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>' +
+        'View on GitHub' +
+      '</a>' +
+    '</div>';
+  }).join('');
 }
-
-function esc(s) {
-  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-function el(id) { return document.getElementById(id); }
 
 // ── ADMIN ──
 function openAdmin() {
@@ -876,186 +385,151 @@ function openAdmin() {
   el('auth-error').style.display = 'none';
   document.body.style.overflow = 'hidden';
 }
-
 function closeAdmin() {
   el('admin-overlay').classList.remove('open');
   document.body.style.overflow = '';
   cancelEdit();
 }
-
 function login() {
-  const entered = el('pw-input').value;
-  if (entered === DB.password) {
+  if (el('pw-input').value === DB.password) {
     el('auth-screen').style.display = 'none';
     el('admin-content').style.display = 'block';
-    populateAdminProfile();
+    populateProfile();
     renderAdminProjects();
-    el('auth-error').style.display = 'none';
   } else {
     el('auth-error').style.display = 'block';
     el('pw-input').value = '';
     el('pw-input').focus();
   }
 }
-
-function populateAdminProfile() {
-  const p = DB.profile;
-  el('p-name').value = p.name || '';
-  el('p-email').value = p.email || '';
-  el('p-bio').value = p.bio || '';
-  el('p-school').value = p.school || '';
-  el('p-role').value = p.role || '';
-  el('p-status').value = p.status || '';
-  el('p-github').value = p.github || '';
-  el('p-linkedin').value = p.linkedin || '';
+function populateProfile() {
+  var p = DB.profile;
+  el('p-name').value = p.name||''; el('p-email').value = p.email||'';
+  el('p-bio').value = p.bio||''; el('p-school').value = p.school||'';
+  el('p-role').value = p.role||''; el('p-status').value = p.status||'';
+  el('p-github').value = p.github||''; el('p-linkedin').value = p.linkedin||'';
 }
-
 function saveProfile() {
-  DB.profile = {
-    name: el('p-name').value,
-    email: el('p-email').value,
-    bio: el('p-bio').value,
-    school: el('p-school').value,
-    role: el('p-role').value,
-    status: el('p-status').value,
-    github: el('p-github').value,
-    linkedin: el('p-linkedin').value
-  };
-  saveData(DB);
+  DB.profile = { name:el('p-name').value, email:el('p-email').value, bio:el('p-bio').value, school:el('p-school').value, role:el('p-role').value, status:el('p-status').value, github:el('p-github').value, linkedin:el('p-linkedin').value };
   render();
-  toast('Profile saved ✓');
+  toast('Profile saved — remember to download & re-upload to go live!');
 }
-
 function renderAdminProjects() {
-  const list = el('admin-project-list');
-  if (!DB.projects.length) {
-    list.innerHTML = '<div style="color:var(--ink3);font-size:13px;font-family:JetBrains Mono,monospace;padding:0.75rem 0">// no projects yet</div>';
-    return;
-  }
-  list.innerHTML = DB.projects.map(p => `
-    <div class="admin-project-item">
-      <span class="admin-project-item-title">${esc(p.title)}</span>
-      <span class="project-status status-${p.status}" style="font-size:9px">${p.status}</span>
-      <div class="admin-item-btns">
-        <button class="icon-btn" onclick="editProject(${p.id})" title="Edit">✎</button>
-        <button class="icon-btn del" onclick="confirmDelete(${p.id})" title="Delete">✕</button>
-      </div>
-    </div>
-  `).join('');
+  var list = el('admin-project-list');
+  if (!DB.projects.length) { list.innerHTML = '<div style="color:var(--ink3);font-size:13px;font-family:JetBrains Mono,monospace;padding:0.5rem 0">// no projects yet</div>'; return; }
+  list.innerHTML = DB.projects.map(function(p) {
+    return '<div class="admin-project-item">' +
+      '<span class="admin-project-item-title">' + esc(p.title) + '</span>' +
+      '<span class="project-status status-' + p.status + '" style="font-size:9px">' + p.status + '</span>' +
+      '<div class="admin-item-btns">' +
+        '<button class="icon-btn" onclick="editProject(' + p.id + ')" title="Edit">✎</button>' +
+        '<button class="icon-btn del" onclick="confirmDelete(' + p.id + ')" title="Delete">✕</button>' +
+      '</div>' +
+    '</div>';
+  }).join('');
 }
-
 function openNewProject() {
   editingId = null;
   el('edit-form-title').textContent = 'New Project';
-  el('e-title').value = '';
-  el('e-desc').value = '';
-  el('e-github').value = '';
-  el('e-status').value = 'active';
-  el('e-tags').value = '';
+  el('e-title').value=''; el('e-desc').value=''; el('e-github').value='';
+  el('e-status').value='active'; el('e-tags').value='';
   el('delete-btn').style.display = 'none';
   el('edit-form').classList.add('open');
-  el('e-title').focus();
-  el('edit-form').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  setTimeout(function(){ el('edit-form').scrollIntoView({behavior:'smooth',block:'nearest'}); }, 50);
 }
-
 function editProject(id) {
-  const p = DB.projects.find(x => x.id === id);
+  var p = DB.projects.find(function(x){ return x.id===id; });
   if (!p) return;
   editingId = id;
   el('edit-form-title').textContent = 'Edit Project';
-  el('e-title').value = p.title || '';
-  el('e-desc').value = p.description || '';
-  el('e-github').value = p.github || '';
-  el('e-status').value = p.status || 'active';
-  el('e-tags').value = (p.tags || []).join(', ');
-  el('delete-btn').style.display = '';
+  el('e-title').value=p.title||''; el('e-desc').value=p.description||'';
+  el('e-github').value=p.github||''; el('e-status').value=p.status||'active';
+  el('e-tags').value=(p.tags||[]).join(', ');
+  el('delete-btn').style.display='';
   el('edit-form').classList.add('open');
-  el('edit-form').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  setTimeout(function(){ el('edit-form').scrollIntoView({behavior:'smooth',block:'nearest'}); }, 50);
 }
-
 function saveProject() {
-  const title = el('e-title').value.trim();
+  var title = el('e-title').value.trim();
   if (!title) { el('e-title').focus(); return; }
-  const project = {
-    id: editingId || Date.now(),
-    title,
-    description: el('e-desc').value.trim(),
-    github: el('e-github').value.trim(),
-    status: el('e-status').value,
-    tags: el('e-tags').value.split(',').map(t => t.trim()).filter(Boolean)
-  };
-  if (editingId) {
-    DB.projects = DB.projects.map(p => p.id === editingId ? project : p);
-  } else {
-    DB.projects.push(project);
-  }
-  saveData(DB);
-  render();
-  renderAdminProjects();
-  cancelEdit();
-  toast(editingId ? 'Project updated ✓' : 'Project added ✓');
+  var project = { id:editingId||Date.now(), title:title, description:el('e-desc').value.trim(), github:el('e-github').value.trim(), status:el('e-status').value, tags:el('e-tags').value.split(',').map(function(t){return t.trim();}).filter(Boolean) };
+  if (editingId) { DB.projects = DB.projects.map(function(p){ return p.id===editingId?project:p; }); }
+  else DB.projects.push(project);
+  render(); renderAdminProjects(); cancelEdit();
+  toast(editingId ? 'Project updated — download to publish!' : 'Project added — download to publish!');
 }
-
-function confirmDelete(id) {
-  editingId = id;
-  deleteProject();
-}
-
+function confirmDelete(id) { editingId = id; deleteProject(); }
 function deleteProject() {
   if (!editingId) return;
   if (!confirm('Delete this project? This cannot be undone.')) return;
-  DB.projects = DB.projects.filter(p => p.id !== editingId);
-  saveData(DB);
-  render();
-  renderAdminProjects();
-  cancelEdit();
-  toast('Project deleted');
+  DB.projects = DB.projects.filter(function(p){ return p.id!==editingId; });
+  render(); renderAdminProjects(); cancelEdit();
+  toast('Project deleted — download to publish!');
 }
-
-function cancelEdit() {
-  editingId = null;
-  el('edit-form').classList.remove('open');
-}
-
-function togglePwForm() {
-  el('change-pw-form').classList.toggle('open');
-}
-
+function cancelEdit() { editingId=null; el('edit-form').classList.remove('open'); }
+function togglePwForm() { el('change-pw-form').classList.toggle('open'); }
 function changePassword() {
-  const np = el('new-pw').value;
-  const cp = el('confirm-pw').value;
+  var np=el('new-pw').value, cp=el('confirm-pw').value;
   if (!np) return;
-  if (np !== cp) { alert('Passwords do not match.'); return; }
-  DB.password = np;
-  saveData(DB);
-  el('new-pw').value = '';
-  el('confirm-pw').value = '';
+  if (np!==cp) { alert('Passwords do not match.'); return; }
+  DB.password=np; el('new-pw').value=''; el('confirm-pw').value='';
   el('change-pw-form').classList.remove('open');
-  toast('Password updated ✓');
+  toast('Password updated — download to save it permanently!');
+}
+
+// ── EXPORT ──
+function exportSite() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', window.location.href, true);
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      var html = xhr.responseText;
+      var dataStr = JSON.stringify(DB, null, 2);
+      var newData = 'var SITE_DATA = ' + dataStr + ';';
+      var updated = html.replace(/var SITE_DATA = \{[\s\S]*?\};/, newData);
+      download('index.html', updated);
+      toast('Downloaded! Re-upload to GitHub to go live.');
+    } else {
+      fallbackExport();
+    }
+  };
+  xhr.onerror = function() { fallbackExport(); };
+  xhr.send();
+}
+
+function fallbackExport() {
+  var currentHTML = document.documentElement.outerHTML;
+  var dataStr = JSON.stringify(DB, null, 2);
+  var newData = 'var SITE_DATA = ' + dataStr + ';';
+  var updated = currentHTML.replace(/var SITE_DATA = \{[\s\S]*?\};/, newData);
+  download('index.html', updated);
+  toast('Downloaded! Re-upload to GitHub to go live.');
+}
+
+function download(filename, text) {
+  var blob = new Blob([text], {type:'text/html'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
 }
 
 function toast(msg) {
-  const t = el('toast');
+  var t = el('toast');
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
+  setTimeout(function(){ t.classList.remove('show'); }, 3000);
 }
 
-// ── SECRET URL TRIGGER ── Visit ?admin to open panel
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', function() {
   render();
   if (location.search.includes('admin')) openAdmin();
 });
-
-// Close overlay on backdrop click
-el('admin-overlay').addEventListener('click', e => {
-  if (e.target === el('admin-overlay')) closeAdmin();
-});
-
-// Konami-style: press backtick ` to open admin
-document.addEventListener('keydown', e => {
-  if (e.key === '`') openAdmin();
-});
+el('admin-overlay').addEventListener('click', function(e){ if(e.target===el('admin-overlay')) closeAdmin(); });
+document.addEventListener('keydown', function(e){ if(e.key==='`') openAdmin(); });
 </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CJ — Portfolio</title>
+<title>Christian — Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -165,9 +165,9 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
   <div class="hero-inner">
     <div class="hero-tag">
       <span class="status-dot"></span>
-      <span id="hero-tag-text">CPI Researcher · Idaho State University</span>
+      <span id="hero-tag-text">Researcher · Idaho State University</span>
     </div>
-    <h1 id="hero-name">Hi, I'm <span class="name-accent">CJ.</span></h1>
+    <h1 id="hero-name">Hi, I'm <span class="name-accent">Christian.</span></h1>
     <p class="hero-bio" id="hero-bio">Engineering student at Idaho State University, pursuing nuclear and mechanical engineering with a minor in physics. I'm interested in the places where AI, game theory, and optimization overlap — and I spend a lot of my time chasing those intersections through research and personal projects.</p>
     <div class="hero-meta">
       <div class="meta-item">
@@ -176,7 +176,7 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
       </div>
       <div class="meta-item">
         <span class="meta-label">Role</span>
-        <span class="meta-value" id="meta-role">CPI Researcher</span>
+        <span class="meta-value" id="meta-role">Researcher</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Status</span>
@@ -270,7 +270,7 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
 </section>
 
 <footer>
-  <span id="footer-text">CJ · Idaho State University · CJDone.dev</span>
+  <span id="footer-text">Christian · Idaho State University · CJDone.dev</span>
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -312,13 +312,13 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
       <div style="margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid var(--border)">
         <div class="section-h3">Profile</div>
         <div class="field-row">
-          <div class="field"><label>Your Name</label><input type="text" id="p-name" placeholder="CJ"></div>
+          <div class="field"><label>Your Name</label><input type="text" id="p-name" placeholder="Christian"></div>
           <div class="field"><label>Email</label><input type="text" id="p-email" placeholder="cj@isu.edu"></div>
         </div>
         <div class="field"><label>Bio</label><textarea id="p-bio" placeholder="A short description about yourself..."></textarea></div>
         <div class="field-row">
           <div class="field"><label>School</label><input type="text" id="p-school" placeholder="Idaho State University"></div>
-          <div class="field"><label>Role / Title</label><input type="text" id="p-role" placeholder="CPI Researcher"></div>
+          <div class="field"><label>Role / Title</label><input type="text" id="p-role" placeholder="Researcher"></div>
         </div>
         <div class="field-row">
           <div class="field"><label>Status (shown in nav)</label><input type="text" id="p-status" placeholder="Open to research"></div>
@@ -376,11 +376,11 @@ footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: 
 var SITE_DATA = {
   "password": "admin123",
   "profile": {
-    "name": "CJ",
+    "name": "Christian",
     "email": "christiandone@isu.edu",
     "bio": "Engineering student at Idaho State University, pursuing nuclear and mechanical engineering with a minor in physics. I'm interested in the places where AI, game theory, and optimization overlap — and I spend a lot of my time chasing those intersections through research and personal projects.",
     "school": "Idaho State University",
-    "role": "CPI Researcher",
+    "role": "Researcher",
     "status": "Open to research",
     "github": "https://github.com",
     "linkedin": "",
@@ -409,15 +409,15 @@ function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;'
 
 function render() {
   var p = DB.profile;
-  document.title = (p.name||'CJ') + ' — Portfolio';
+  document.title = (p.name||'Christian') + ' — Portfolio';
   el('hero-tag-text').textContent = (p.role||'') + ' · ' + (p.school||'');
-  el('hero-name').innerHTML = 'Hi, I\'m <span class="name-accent">' + esc(p.name||'CJ') + '.</span>';
+  el('hero-name').innerHTML = 'Hi, I\'m <span class="name-accent">' + esc(p.name||'Christian') + '.</span>';
   el('hero-bio').textContent = p.bio || '';
   el('meta-school').textContent = p.school || '';
   el('meta-role').textContent = p.role || '';
   el('meta-status').textContent = p.status || '';
   el('nav-status-text').textContent = p.status || '';
-  el('footer-text').textContent = (p.name||'CJ') + ' · ' + (p.school||'') + ' · CJDone.dev';
+  el('footer-text').textContent = (p.name||'Christian') + ' · ' + (p.school||'') + ' · CJDone.dev';
   var emailLink = el('contact-email-link');
   emailLink.textContent = p.email || '';
   emailLink.href = 'mailto:' + (p.email||'');
